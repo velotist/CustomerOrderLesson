@@ -8,7 +8,7 @@ import java.io.*;
  * @project CoustomerOrderTutorial
  */
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String text = "Hallo user1 bestellt 3 kisten Banane";
         wirteFile(text);
     }
@@ -21,6 +21,7 @@ public class Main {
        try{
            BufferedWriter bw = new BufferedWriter(
                    new FileWriter(getPath()));
+           bw.write(readFile() + "\n");
            bw.write(text);
            bw.close();
        }catch(Exception ex){
@@ -43,7 +44,7 @@ public class Main {
         }catch(Exception ex){
             ex.printStackTrace();
         }
-
+        System.out.println(txt);
         return txt;
     }
 }
