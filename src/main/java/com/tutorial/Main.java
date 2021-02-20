@@ -1,9 +1,7 @@
 package com.tutorial;
 
 
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.*;
 
 /**
  * @author maximilian lamm brain.free.kontakt@gmail.com
@@ -11,14 +9,41 @@ import java.nio.file.Paths;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        wirteFile();
+        String text = "Hallo user1 bestellt 3 kisten Banane";
+        wirteFile(text);
     }
 
-    private static void wirteFile() throws IOException {
-        System.out.println("hier wird eine Datei gelesen" + getPath().toString() + " order.text");
+    private static String getPath(){
+        return "src/main/resources/log/order.txt";
     }
 
-    private static Path getPath(){
-        return Paths.get("/resources/");
+    private static void wirteFile(String text) throws IOException {
+       try{
+           BufferedWriter bw = new BufferedWriter(
+                   new FileWriter(getPath()));
+           bw.write(text);
+           bw.close();
+       }catch(Exception ex){
+           ex.printStackTrace();
+           return;
+       }
+    }
+    
+    //TODO: read file dont work
+    private static String readFile() {
+        String txt = "";
+        try {
+            BufferedReader br = new BufferedReader(
+                    new FileReader(getPath().toString()));
+
+            while (br.readLine()!=null ){
+                txt = br.readLine();
+            }
+
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+
+        return txt;
     }
 }
