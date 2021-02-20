@@ -13,6 +13,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer {
-    String name;
+    private String _firstName;
+    private String _lastName;
+    private String _location;
+    private int _id;
 
+    public Customer(String firstName, String lastName, int id) {
+        _id =id;
+        _firstName = firstName;
+        _lastName = lastName;
+    }
 }
