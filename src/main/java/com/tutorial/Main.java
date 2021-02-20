@@ -17,7 +17,7 @@ public class Main {
         return "src/main/resources/log/order.txt";
     }
 
-    private static void wirteFile(String text) throws IOException {
+    private static void wirteFile(String text) {
        try{
            BufferedWriter bw = new BufferedWriter(
                    new FileWriter(getPath()));
@@ -28,7 +28,7 @@ public class Main {
            return;
        }
     }
-    
+
     //TODO: read file dont work
     private static String readFile() {
         String txt = "";
